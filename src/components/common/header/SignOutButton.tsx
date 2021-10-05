@@ -6,7 +6,7 @@ const SignOutStyledButton = styled(Button)(({ theme }) => ({
   color: theme.commonColors.white,
 }));
 
-const SignInButton = () => {
+const SignOutButton = () => {
   const { logout } = useAuth0();
 
   const onSignOut = () => {
@@ -16,4 +16,4 @@ const SignInButton = () => {
   return <SignOutStyledButton onClick={onSignOut}>Sign Out</SignOutStyledButton>;
 };
 
-export default SignInButton;
+export default SignOutButton;
