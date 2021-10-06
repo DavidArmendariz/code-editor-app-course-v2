@@ -4,17 +4,20 @@ import AuthProvider from 'auth/AuthProvider';
 import Loading from 'components/common/loading/Loading';
 import Routes from 'routes/Routes';
 import CustomThemeProvider from 'theme/CustomThemeProvider';
+import StoreProvider from 'store/StoreProvider';
 
 function App() {
   return (
     <Suspense fallback={<Loading />}>
-      <Router>
-        <AuthProvider>
-          <CustomThemeProvider>
-            <Routes />
-          </CustomThemeProvider>
-        </AuthProvider>
-      </Router>
+      <StoreProvider>
+        <Router>
+          <AuthProvider>
+            <CustomThemeProvider>
+              <Routes />
+            </CustomThemeProvider>
+          </AuthProvider>
+        </Router>
+      </StoreProvider>
     </Suspense>
   );
 }

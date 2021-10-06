@@ -1,4 +1,4 @@
-import darkModeReducer, { toggleDarkMode } from './darkMode';
+import { toggleDarkMode, darkModeReducer } from './darkMode';
 
 describe('dark mode reducer', () => {
   it('should enable the dark mode if it is disabled', () => {
