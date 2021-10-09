@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import paths from 'routes/paths';
 import CodeEditorButton from './CodeEditorButton';
+import DarkModeSwitch from './DarkModeSwitch';
 import SignInButton from './SignInButton';
 import SignOutButton from './SignOutButton';
 
@@ -21,6 +22,7 @@ const Header = () => {
         <Typography variant="h6" sx={{ flex: 1 }}>
           <StyledLink to={paths.home}>Code Editor App</StyledLink>
         </Typography>
+        <DarkModeSwitch />
         {isAuthenticated ? <AuthenticatedButtons /> : <UnauthenticatedButtons />}
       </Toolbar>
     </AppBar>
