@@ -65,4 +65,57 @@ describe('files slice', () => {
     };
     expect(filesReducer(initialState, setEditorActiveFile(null))).toEqual(expectedState);
   });
+
+  it('should update the code of a file when the action is updateFileCode', () => {
+    const payload = {
+      fileId: '1',
+      newCode: 'console.log("change")',
+    };
+    const modifiedInitialState = {
+      ...initialState,
+      userFiles: [
+        {
+          id: '1',
+          code: 'console.log("hello world")',
+          name: 'index.js',
+          relativePath: 'src/index.js',
+          extension: '.js',
+        },
+      ],
+    };
+    const expectedState = {
+      ...modifiedInitialState,
+      userFiles: [
+        {
+          id: '1',
+          code: 'console.log("change")',
+          name: 'index.js',
+          relativePath: 'src/index.js',
+          extension: '.js',
+        },
+      ],
+    };
+    expect(filesReducer(modifiedInitialState, updateFileCode(payload))).toEqual(expectedState);
+  });
+
+  it('should not update the state when the file is not found', () => {
+    const payload = {
+      fileId: '2',
+      newCode: 'console.log("change")',
+    };
+    const modifiedInitialState = {
+      ...initialState,
+      userFiles: [
+        {
+          id: '1',
+          code: 'console.log("hello world")',
+          name: 'index.js',
+          relativePath: 'src/index.js',
+          extension: '.js',
+        },
+      ],
+    };
+    const expectedState = modifiedInitialState;
+    expect(filesReducer(modifiedInitialState, updateFileCode(payload))).toEqual(expectedState);
+  });
 });
