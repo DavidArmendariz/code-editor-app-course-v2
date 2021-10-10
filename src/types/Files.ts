@@ -5,3 +5,10 @@ export interface UserFile {
   code: string;
   extension: string;
 }
+
+export interface FileViewerStructure {
+  id: string;
+  name: string;
+  children?: FileViewerStructure[];
+  extension?: string;
+}
