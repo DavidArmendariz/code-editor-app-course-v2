@@ -6,9 +6,9 @@ export interface UserFile {
   extension: string;
 }
 
-export interface FileViewerStructure {
+export interface TreeViewNode {
   id: string;
   name: string;
-  children?: FileViewerStructure[];
+  children?: TreeViewNode[];
   extension?: string;
 }
