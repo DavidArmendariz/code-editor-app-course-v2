@@ -35,11 +35,11 @@ const CodeEditorContainer = () => {
             return <Tab key={id} label={<CustomTabLabel activeFile={activeFile} />} />;
           })}
         </Tabs>
-        {activeFiles.map((activeFile) => {
-          const { id } = activeFile;
-          return <CustomTabPanel key={id} activeFile={activeFile} editorActiveFileId={editorActiveFileId} />;
-        })}
       </AppBar>
+      {activeFiles.map((activeFile) => {
+        const { id } = activeFile;
+        return <CustomTabPanel key={id} activeFile={activeFile} editorActiveFileId={editorActiveFileId} />;
+      })}
     </CodeEditorContainerDiv>
   );
 };
